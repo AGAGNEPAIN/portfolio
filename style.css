@@ -1,0 +1,215 @@
+            body {
+                font-family: 'Space Grotesk', sans-serif;
+                background-color: #030303;
+                color: #ffffff;
+                overflow-x: hidden;
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+
+            body::-webkit-scrollbar {
+                display: none;
+            }
+
+            h1,
+            h2,
+            h3,
+            .font-display {
+                font-family: 'Syncopate', sans-serif;
+                text-transform: uppercase;
+            }
+
+            /* --- ARRIÈRE-PLAN 3D --- */
+            #webgl-container {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: -2;
+                pointer-events: none;
+                background: radial-gradient(circle at center, #0a0a1a 0%, #000000 100%);
+            }
+
+            #webgl-container::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                /* background: rgba(0, 0, 0, 0.05); */
+                /* backdrop-filter: blur(1px); */
+                /* -webkit-backdrop-filter: blur(1px); */
+            }
+
+            /* --- AMÉLIORATION 4: FILM GRAIN --- */
+            .film-grain {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                pointer-events: none;
+                z-index: 9998;
+                opacity: 0.04;
+                background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            }
+
+            section {
+                position: relative;
+                z-index: 10;
+            }
+
+            /* --- AMÉLIORATION 5: CYBER-GRID --- */
+            .cyber-grid {
+                background-image:
+                    linear-gradient(rgba(0, 255, 204, 0.03) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0, 255, 204, 0.03) 1px, transparent 1px);
+                background-size: 30px 30px;
+                background-position: center center;
+            }
+
+            /* --- UI FORMULAIRE --- */
+            .input-minimalist {
+                background: transparent;
+                border: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+                padding: 1rem 0;
+                width: 100%;
+                transition: all 0.4s ease;
+                outline: none;
+                color: white;
+                border-radius: 0;
+            }
+
+            .input-minimalist:focus {
+                border-bottom-color: #00ffcc;
+                box-shadow: 0 1px 0 0 #00ffcc;
+            }
+
+            .input-minimalist::placeholder {
+                color: rgba(255, 255, 255, 0.4);
+            }
+
+            .stack-item {
+                position: relative;
+                display: inline-block;
+                transition: color 0.3s ease;
+            }
+
+            .stack-item::after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                transform: scaleX(0);
+                height: 2px;
+                bottom: 0;
+                left: 0;
+                background-color: #00ffcc;
+                transform-origin: bottom right;
+                transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+            }
+
+            .group:hover .stack-item::after {
+                transform: scaleX(1);
+                transform-origin: bottom left;
+            }
+
+            /* --- AMÉLIORATION 1: REVEAL ANIMATIONS --- */
+            .reveal {
+                opacity: 0;
+                transform: translateY(40px);
+                transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1), transform 0.8s cubic-bezier(0.5, 0, 0, 1);
+            }
+
+            .reveal.active {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .delay-100 {
+                transition-delay: 100ms;
+            }
+
+            .delay-200 {
+                transition-delay: 200ms;
+            }
+
+            .delay-300 {
+                transition-delay: 300ms;
+            }
+
+            /* --- AMÉLIORATION 3: CUSTOM CURSOR (Desktop Only) --- */
+            @media (pointer: fine) {
+                body {
+                    cursor: none;
+                }
+
+                a,
+                button,
+                input,
+                textarea,
+                .magnetic-btn {
+                    cursor: none;
+                }
+
+                #custom-cursor,
+                #custom-cursor-follower {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    pointer-events: none;
+                    border-radius: 50%;
+                    z-index: 9999;
+                    transform: translate(-50%, -50%);
+                }
+
+                #custom-cursor {
+                    width: 6px;
+                    height: 6px;
+                    background-color: #00ffcc;
+                    transition: width 0.2s, height 0.2s;
+                }
+
+                #custom-cursor-follower {
+                    width: 40px;
+                    height: 40px;
+                    border: 1px solid rgba(0, 255, 204, 0.4);
+                    transition: transform 0.1s ease-out, width 0.3s, height 0.3s, background-color 0.3s, border-color 0.3s;
+                }
+
+                /* Hover states */
+                body.hovering #custom-cursor {
+                    width: 0;
+                    height: 0;
+                }
+
+                body.hovering #custom-cursor-follower {
+                    width: 60px;
+                    height: 60px;
+                    background-color: rgba(0, 255, 204, 0.1);
+                    border-color: #00ffcc;
+                    backdrop-filter: blur(2px);
+                }
+            }
+
+            /* Cacher les éléments de curseur sur mobile */
+            @media (pointer: coarse) {
+
+                #custom-cursor,
+                #custom-cursor-follower {
+                    display: none;
+                }
+            }
+
+            /* --- NOUVEAU: PRELOADER CLASSIEUX --- */
+            #preloader {
+                transition: transform 1s cubic-bezier(0.7, 0, 0.3, 1), opacity 1s ease;
+            }
+
+            #preloader.loaded {
+                transform: translateY(-100%);
+                pointer-events: none;
+            }
+
+            .no-scroll {
+                overflow: hidden !important;
+            }
