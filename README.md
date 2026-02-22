@@ -1,5 +1,7 @@
 # Portfolio - Antoine Gagnepain
 
+[![Deploy static content to Pages](https://github.com/AGAGNEPAIN/portfolio/actions/workflows/static.yml/badge.svg)](https://agagnepain.github.io/portfolio/)
+
 Un portfolio interactif, immersif et performant, développé en **Vanilla JavaScript** et propulsé par **Three.js** pour offrir une expérience spatiale unique.
 
 ## 🚀 Vue d'Ensemble des Technologies
@@ -35,20 +37,3 @@ Plutôt que d'avoir d'abruptes transitions lors des interactions, les mathémati
 
 - **Interpolation Linéaire (Lerp) :** Utilisée massivement dans la fonction `animate()`. Lorsque l'utilisateur bouge la souris ou touche l'écran, la caméra ne cible pas instantanément le nouveau point (`currentLookAtX += (targetX - currentLookAtX) * factor`). Elle "tourne la tête" avec du retard, donnant une sensation de poids gravitationnel très agréable.
 - **Animation liée au Scroll :** Le `scrollPercent` influence directement l'axe `Y` (élévation façon drone) et l'axe `Z` de la caméra. Descendre sur la page fait littéralement avancer et monter la caméra dans le modèle 3D.
-
----
-
-## ✨ Autres Effets Frontend Développés
-
-Outre le WebGL, plusieurs techniques JavaScript et CSS viennent parfaire l'interface utilisateur en premier plan :
-
-- **Curseur Magnétique (`#custom-cursor`) :** Un système complet de curseur personnalisé pour ordinateur, incluant un algorithme qui "attire" littéralement la hitbox et l'aspect visuel du bouton de contact (bouton magnétique).
-- **Effet Scramble (Brutalisme) :** Une classe JavaScript custom `TextScramble` remplace temporairement les caractères d'un titre par des symboles spatiaux, générant un effet de décodage informatique de la "matrice".
-- **Scroll Reveal API :** Utilisation propre de l'`IntersectionObserver` pour déclencher les apparitions asynchrones des blocs de textes (fade in + translateY) sans impacter les performances liées au scroll de la page.
-- **Filtres CSS Passifs :** Intégration performante (via `pointer-events: none` et `z-index`) de texture de pellicule de film (`.film-grain` en SVG data URI) et d'une esthétique `.cyber-grid` pour texturer les boîtes d'information.
-
----
-
-## 🛠️ Déploiement CI/CD
-
-Ce projet est hébergé publiquement de façon automatisée via **GitHub Pages**. Un pipeline CI/CD léger est configuré avec **GitHub Actions** (`.github/workflows/static.yml`). Chaque `git push` sur la branche principale compile statiquement le projet et l'injecte instantanément en ligne.
