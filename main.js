@@ -124,6 +124,86 @@ const observer = new IntersectionObserver((entries, observer) => {
     });
 }, observerOptions);
 
+// --- 3. TRADUCTIONS & SWITCH DE LANGUE ---
+const translations = {
+    fr: {
+        heroTag: "SYS.INIT // INGENIEUR LOGICIEL",
+        heroSub1: "Développeur Full-Stack",
+        heroSub2: "Spécialisé dans la conception de solutions innovantes et fiables pour des écosystèmes à haute valeur ajoutée.",
+        scrollText: "SCROLL / GLISSER",
+        stackTitle: "MA STACK.",
+        langCore: "01 // LANGAGES & CORE",
+        frontendUI: "02 // FRONTEND & UI",
+        backendData: "03 // BACKEND & DATA",
+        devopsQuality: "04 // DEVOPS & QUALITÉ",
+        contactTitle: "CONTACT DIRECT",
+        location: "Bordeaux, France",
+        formName: "NOM OU ENTREPRISE",
+        formMessage: "MESSAGE...",
+        btnText: "ENVOYER LE MESSAGE"
+    },
+    en: {
+        heroTag: "SYS.INIT // SOFTWARE ENGINEER",
+        heroSub1: "Full-Stack Developer",
+        heroSub2: "Specialized in building innovative and reliable solutions for high value-added ecosystems.",
+        scrollText: "SCROLL / SWIPE",
+        stackTitle: "MY STACK.",
+        langCore: "01 // LANGUAGES & CORE",
+        frontendUI: "02 // FRONTEND & UI",
+        backendData: "03 // BACKEND & DATA",
+        devopsQuality: "04 // DEVOPS & QUALITY",
+        contactTitle: "DIRECT CONTACT",
+        location: "Bordeaux, France",
+        formName: "NAME OR COMPANY",
+        formMessage: "MESSAGE...",
+        btnText: "SEND MESSAGE"
+    }
+};
+
+let currentLang = 'fr';
+
+window.switchLanguage = function (lang) {
+    if (lang === currentLang) return;
+    currentLang = lang;
+
+    document.getElementById('lang-fr').className = lang === 'fr' ? 'text-[#00ffcc] font-bold transition-colors cursor-hover-target' : 'text-white/50 hover:text-white transition-colors cursor-hover-target';
+    document.getElementById('lang-en').className = lang === 'en' ? 'text-[#00ffcc] font-bold transition-colors cursor-hover-target' : 'text-white/50 hover:text-white transition-colors cursor-hover-target';
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        const newText = translations[lang][key];
+
+        if (!newText) return;
+
+        if (el.hasAttribute('data-scramble')) {
+            el.setAttribute('data-scramble', newText);
+            const fx = new TextScramble(el);
+            fx.setText(newText);
+        } else {
+            el.style.transition = 'opacity 0.3s ease';
+            el.style.opacity = 0;
+            setTimeout(() => {
+                el.innerHTML = newText;
+                el.style.opacity = 1;
+            }, 300);
+        }
+    });
+
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (translations[lang][key]) {
+            el.setAttribute('placeholder', translations[lang][key]);
+        }
+    });
+
+    document.querySelectorAll('[data-i18n-scramble]').forEach(el => {
+        const key = el.getAttribute('data-i18n-scramble');
+        if (translations[lang][key]) {
+            el.setAttribute('data-scramble', translations[lang][key]);
+        }
+    });
+};
+
 window.onload = function () {
 
     // --- NOUVEAU : LOGIQUE DU PRELOADER ---
