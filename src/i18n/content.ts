@@ -80,11 +80,11 @@ export const TRANSLATIONS: Record<Lang, Translation> = {
         place: "Bordeaux",
         period: "Juil. 2023 — Aujourd’hui",
         summary:
-          "Lead technique sur la refonte de l'écosystème produit et des outils internes pour les professionnels de l'immobilier.",
+          "Architecte et référent technique sur la refonte de l'écosystème produit et des outils internes pour les professionnels de l'immobilier.",
         points: [
           {
             label: "Produits",
-            text: "Pilotage de bout en bout des produits clés : Little Worker Pro, Studio (devis, contractualisation, matériaux chantier), Projection DPE (algorithme 3CL) et refonte complète du tunnel d'acquisition.",
+            text: "Conception et livraison technique de bout en bout des produits clés : Little Worker Pro, Studio (devis, contractualisation, matériaux chantier), Projection DPE (algorithme 3CL) et refonte complète du tunnel d'acquisition.",
           },
           {
             label: "Architecture",
@@ -175,7 +175,7 @@ export const TRANSLATIONS: Record<Lang, Translation> = {
         place: "Bordeaux",
         period: "Jul. 2023 — Present",
         summary:
-          "Tech lead on the rebuild of the product ecosystem and internal tools for real-estate professionals.",
+          "Architect and technical lead on the rebuild of the product ecosystem and internal tools for real-estate professionals.",
         points: [
           {
             label: "Products",
