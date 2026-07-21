@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import portraitUrl from "../../../assets/portrait.png";
+import { useMediaQuery } from "../../../hooks/useMediaQuery/useMediaQuery";
+import { FINE_POINTER_QUERY } from "../../../lib/constants/constants";
 import { applyDuotone, findDrawnHeight } from "../../../lib/duotone/duotone";
 import styles from "./PortraitCard.module.css";
 
@@ -42,6 +44,9 @@ function paintCropped(
 export function PortraitCard() {
   const [hovered, setHovered] = useState(false);
   const [aspectRatio, setAspectRatio] = useState(FALLBACK_ASPECT_RATIO);
+  // No hover on touch: reveal is tap-driven there instead, so the effect
+  // (and its caption) aren't permanently stuck in their pre-hover state.
+  const isFinePointer = useMediaQuery(FINE_POINTER_QUERY);
   const duotoneCanvasRef = useRef<HTMLCanvasElement>(null);
   const colorCanvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -99,11 +104,21 @@ export function PortraitCard() {
     };
   }, []);
 
+  const toggleReveal = () => {
+    if (!isFinePointer) setHovered((prev) => !prev);
+  };
+
   return (
-    <div
-      className={styles.wrap}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+    <button
+      type="button"
+      className={hovered ? `${styles.wrap} ${styles.revealed}` : styles.wrap}
+      onMouseEnter={() => {
+        if (isFinePointer) setHovered(true);
+      }}
+      onMouseLeave={() => {
+        if (isFinePointer) setHovered(false);
+      }}
+      onClick={toggleReveal}
     >
       <div className={styles.frame} style={{ aspectRatio: String(aspectRatio) }}>
         <div className={styles.backdrop} />
@@ -119,8 +134,8 @@ export function PortraitCard() {
       </div>
       <div className={styles.caption}>
         <span>FIG. 01</span>
-        <span>{hovered ? "LIVE" : "HOVER"}</span>
+        <span>{hovered ? "LIVE" : isFinePointer ? "HOVER" : "TAP"}</span>
       </div>
-    </div>
+    </button>
   );
 }

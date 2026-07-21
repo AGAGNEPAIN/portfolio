@@ -4,6 +4,13 @@
   gap: 14px;
   flex-shrink: 0;
   width: min(330px, 24vw);
+  border: none;
+  background: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: default;
 }
 
 @media (max-width: 768px) {
@@ -57,7 +64,7 @@
   transition: opacity 0.5s var(--ease-out-quint);
 }
 
-.wrap:hover .photo {
+.wrap.revealed .photo {
   opacity: 1;
 }
 

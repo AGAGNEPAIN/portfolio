@@ -3,24 +3,22 @@
 }
 
 .wrap.visible {
-  animation: tileIn 0.74s var(--ease-spring) both;
+  animation: tileIn 0.6s var(--ease-out-quint) both;
 }
 
+/* Rises up through its own edge like a blind lifting — echoes the section's
+   scroll-linked clip-path reveal (see StackSection.tsx) instead of sliding
+   in sideways, so it holds up in a single-column mobile grid too. */
 @keyframes tileIn {
   0% {
     opacity: 0;
-    transform: translateX(90%) scale(0.9);
-  }
-  60% {
-    opacity: 1;
-    transform: translateX(-6%) scale(1.02);
-  }
-  80% {
-    transform: translateX(3%) scale(0.995);
+    clip-path: inset(0 0 100% 0);
+    transform: translateY(14px);
   }
   100% {
     opacity: 1;
-    transform: translateX(0) scale(1);
+    clip-path: inset(0 0 0% 0);
+    transform: translateY(0);
   }
 }
 
