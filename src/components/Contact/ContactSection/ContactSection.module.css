@@ -1,0 +1,112 @@
+.footer {
+  padding: 16vh 4vw 5vh;
+  color: var(--color-fg);
+  font-family: var(--font-display);
+}
+
+.topRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6vh;
+}
+
+.label {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.availCluster {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 13px;
+}
+
+.reply {
+  opacity: 0.7;
+}
+
+.title {
+  font-weight: 800;
+  font-stretch: 125%;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  font-size: clamp(40px, 7vw, 110px);
+  max-width: 1100px;
+  line-height: 1.02;
+  margin: 0 0 3vh;
+}
+
+.sub {
+  max-width: 520px;
+  opacity: 0.85;
+  margin: 0 0 6vh;
+  line-height: 1.5;
+}
+
+.linkRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.pill {
+  all: unset;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(239, 234, 216, 0.4);
+  border-radius: 999px;
+  padding: 13px 24px;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 13px;
+  color: var(--color-fg);
+  transition: background 0.2s var(--ease-out-quint), color 0.2s var(--ease-out-quint), transform
+    0.2s var(--ease-out-quint);
+}
+
+.pill:hover {
+  background: var(--color-fg);
+  color: var(--color-bg);
+  transform: translateY(-4px);
+}
+
+.pillAccent {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+.pillAccent:hover {
+  background: var(--color-fg);
+  color: var(--color-bg);
+}
+
+.bottomRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 10vh;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-subtle);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 12px;
+  opacity: 0.7;
+}

@@ -1,0 +1,54 @@
+.section {
+  position: relative;
+  background: #efead8;
+  color: #0b3b2c;
+  /* Bottom padding is intentionally much smaller than the top's 14vh: Contact
+     already opens with its own 16vh top padding, so matching that here would
+     double the gap and push the sticky header's native release point far
+     ahead of where Contact actually starts. But the tiles have their own
+     solid background (unlike Experiences' plain-text rows), so *zero* bottom
+     padding leaves the last row looking cut off flush against Contact —
+     still needs a small cushion of its own. */
+  padding: 14vh 4vw 6vh;
+  /* clip-path is set inline, driven by useScrollEntryProgress — see StackSection.tsx */
+  will-change: clip-path;
+}
+
+.header {
+  position: sticky;
+  top: 44px;
+  z-index: 2;
+  background: #efead8;
+  padding: 14px min(150px, 18vw) 18px 0;
+  margin: 0 0 40px;
+  border-bottom: 1px solid rgba(11, 59, 44, 0.4);
+  transition: padding 0.3s var(--ease-out-quint), margin 0.3s var(--ease-out-quint);
+}
+
+.header.stuck {
+  margin: 0 -4vw 40px;
+  padding: 14px min(150px, 18vw) 12px 4vw;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-stretch: 125%;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  font-size: clamp(26px, 3.2vw, 44px);
+  line-height: 1;
+  transform-origin: left center;
+  transition: transform 0.7s var(--ease-out-quint);
+}
+
+.header.stuck .title {
+  transform: scale(0.66);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 14px;
+}

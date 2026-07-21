@@ -1,0 +1,78 @@
+.nav {
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 4vw;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  backdrop-filter: blur(10px);
+  --hover-fg: var(--color-bg);
+  transition: padding 300ms var(--ease-out-quint), background 300ms var(--ease-out-quint), color
+    300ms var(--ease-out-quint);
+}
+
+.compact {
+  padding: 9px 4vw;
+}
+
+.inverted {
+  background: var(--color-fg);
+  color: var(--color-bg);
+  --hover-fg: var(--color-fg);
+}
+
+.grain {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.04;
+  pointer-events: none;
+  background-repeat: repeat;
+}
+
+.logo {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  width: 46px;
+  color: currentColor;
+  padding-right: 10px;
+}
+
+.badge {
+  position: absolute;
+  top: -6px;
+  right: 0px;
+}
+
+.right {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.contact {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 8px 16px;
+  color: currentColor;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 200ms var(--ease-out-quint), color 200ms var(--ease-out-quint);
+}
+
+.contact:hover {
+  background: currentColor;
+  color: var(--hover-fg);
+}

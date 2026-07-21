@@ -1,0 +1,47 @@
+.heading {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-stretch: 125%;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  font-size: clamp(42px, 9.5vw, 150px);
+  line-height: 0.92;
+  color: var(--color-fg);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.decorative {
+  display: contents;
+}
+
+.line {
+  display: block;
+  overflow: hidden;
+}
+
+.letter {
+  display: inline-block;
+  animation: rise 0.9s var(--ease-out-quint) both;
+}
+
+.accent {
+  color: #ffffff;
+}
+
+@keyframes rise {
+  from {
+    transform: translateY(115%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,123 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  padding: 92px 4vw 150px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--color-bg);
+  color: var(--color-fg);
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 18px;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.midRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  margin-top: 48px;
+}
+
+.midRowMobile {
+  flex-direction: column-reverse;
+  align-items: flex-start;
+  gap: 26px;
+}
+
+.leftBlock {
+  display: flex;
+  flex-direction: column;
+  max-width: 620px;
+}
+
+.role {
+  margin: 0 0 20px;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 14px;
+}
+
+.cursor {
+  display: inline-block;
+  margin-left: 4px;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  50.01%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.pitch {
+  margin: 0 0 32px;
+  font-family: var(--font-serif-italic);
+  font-style: italic;
+  font-size: clamp(26px, 2.6vw, 38px);
+  line-height: 1.25;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 480px;
+}
+
+.stat {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 10px;
+}
+
+.statLabel {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 11px;
+  opacity: 0.85;
+}
+
+.nameTilt {
+  transform-style: preserve-3d;
+  transition: transform 0.18s ease-out;
+  will-change: transform;
+}
+
+.marqueeSlot {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .midRow {
+    margin-top: 32px;
+  }
+}

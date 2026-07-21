@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://agagnepain.github.io/portfolio/sitemap.xml

@@ -1,0 +1,4 @@
+.time {
+  color: var(--color-accent);
+  font-variant-numeric: tabular-nums;
+}
