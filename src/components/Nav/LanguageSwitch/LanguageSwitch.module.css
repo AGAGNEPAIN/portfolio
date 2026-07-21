@@ -1,0 +1,42 @@
+.wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.divider {
+  opacity: 0.35;
+}
+
+.button {
+  padding: 2px 0;
+  border: none;
+  background: none;
+  color: currentColor;
+  font-family: inherit;
+  font-size: inherit;
+  letter-spacing: inherit;
+  cursor: pointer;
+  transition: opacity 200ms var(--ease-out-quint);
+}
+
+.active {
+  opacity: 1;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.inactive {
+  opacity: 0.45;
+  text-decoration: none;
+}

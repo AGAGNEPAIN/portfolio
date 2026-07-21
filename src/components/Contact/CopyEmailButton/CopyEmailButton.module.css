@@ -1,0 +1,56 @@
+.button {
+  all: unset;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid rgba(239, 234, 216, 0.4);
+  border-radius: 16px;
+  padding: clamp(20px, 3vw, 34px) clamp(18px, 3vw, 32px);
+  font-family: var(--font-display);
+  color: var(--color-fg);
+  transition: background 0.2s var(--ease-out-quint), color 0.2s var(--ease-out-quint);
+}
+
+.button:hover {
+  background: var(--color-fg);
+  color: var(--color-bg);
+}
+
+.email {
+  font-weight: 650;
+  font-stretch: 110%;
+  font-size: clamp(19px, 3.2vw, 46px);
+  overflow-wrap: anywhere;
+}
+
+.copyCluster {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 13px;
+}
+
+.copyLabel {
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .button {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .email {
+    font-size: clamp(16px, 5.4vw, 26px);
+  }
+}

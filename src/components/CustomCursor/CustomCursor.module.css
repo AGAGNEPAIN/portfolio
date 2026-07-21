@@ -1,0 +1,27 @@
+.dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-fg);
+  mix-blend-mode: difference;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.25s, height 0.25s, background 0.25s, border 0.25s;
+}
+
+.dot.hot {
+  width: 38px;
+  height: 38px;
+  background: transparent;
+  border: 1.5px solid var(--color-fg);
+}
+
+@media (pointer: coarse) {
+  .dot {
+    display: none;
+  }
+}

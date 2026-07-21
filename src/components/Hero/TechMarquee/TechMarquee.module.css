@@ -1,0 +1,35 @@
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  background: var(--color-fg);
+  color: var(--color-bg);
+  padding: 14px 0;
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: marquee 26s linear infinite;
+}
+
+.marquee:hover .track {
+  animation-play-state: paused;
+}
+
+.copy {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 14px;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

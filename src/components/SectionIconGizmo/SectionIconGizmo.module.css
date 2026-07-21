@@ -1,0 +1,59 @@
+.gizmo {
+  position: fixed;
+  top: 60px;
+  right: 4vw;
+  width: 58px;
+  height: 58px;
+  pointer-events: none;
+  z-index: 41;
+  overflow: visible;
+  transition: opacity 0.45s ease, width 0.3s var(--ease-out-quint), height 0.3s
+    var(--ease-out-quint), top 0.3s var(--ease-out-quint);
+  color: var(--color-fg);
+}
+
+.gizmo.onLight {
+  color: #0b3b2c;
+}
+
+.gizmo.stuck {
+  width: 36px;
+  height: 36px;
+  top: 62px;
+}
+
+.line {
+  stroke: currentColor;
+  stroke-width: 9;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: icon-draw 0.5s ease forwards;
+}
+
+@keyframes icon-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .gizmo {
+    width: 44px;
+    height: 44px;
+    top: 52px;
+  }
+
+  .gizmo.stuck {
+    width: 27px;
+    height: 27px;
+    top: 54px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .line {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}

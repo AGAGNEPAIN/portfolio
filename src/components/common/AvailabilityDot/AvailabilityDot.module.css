@@ -1,0 +1,30 @@
+.wrap {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.core,
+.pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+}
+
+.pulse {
+  animation: pulseDot 2.4s ease-out infinite;
+}
+
+@keyframes pulseDot {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
