@@ -10,6 +10,7 @@
   background: var(--color-bg);
   color: var(--color-fg);
   backdrop-filter: blur(10px);
+  --hover-bg: var(--color-fg);
   --hover-fg: var(--color-bg);
   transition: padding 300ms var(--ease-out-quint), background 300ms var(--ease-out-quint), color
     300ms var(--ease-out-quint);
@@ -22,6 +23,7 @@
 .inverted {
   background: var(--color-fg);
   color: var(--color-bg);
+  --hover-bg: var(--color-bg);
   --hover-fg: var(--color-fg);
 }
 
@@ -73,6 +75,6 @@
 }
 
 .contact:hover {
-  background: currentColor;
+  background: var(--hover-bg);
   color: var(--hover-fg);
 }
